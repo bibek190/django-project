@@ -1,10 +1,17 @@
 from django.shortcuts import render
 
-from django.http  import HttpResponse
+from django.http import HttpResponse
+from django.shortcuts import render
 
 def home(request):
-    return render(request,"home/index.html")
+    
+    peoples = [
+        {"name":"bibek","age":24},
+        {"name":"firoj","age":44},
+        {"name":"hari","age":34},
+        {"name":"prex","age":14},
+    ]
+    
 
-
-def success_page(request):
-    return HttpResponse("Hey this is a success page")
+    
+    return render(request,"home/index.html",context = {"peoples":peoples})
